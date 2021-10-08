@@ -55,6 +55,8 @@ public class TC_003_CreateContact_org_Test {
 		String childWindow=window.next();
 
 		driver.switchTo().window(childWindow);
+		
+		//Selecting Org from Child Window
 
 		driver.findElement(By.id("search_txt")).sendKeys("QSP_HYD");
 
@@ -63,6 +65,7 @@ public class TC_003_CreateContact_org_Test {
 		driver.findElement(By.xpath("//a[@id='1' and text()='QSP_HYD']")).click();
 
 		driver.switchTo().window(parentWindow);
+		
 		//Save the contact after selecting org
 		driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
 
