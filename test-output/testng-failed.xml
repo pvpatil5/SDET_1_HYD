@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Vtiger.TC_002_CreateContactTest">
+      <class name="com.Vtiger.TC_001_CreateOrgWith_DDTest">
         <methods>
-          <include name="createcontact"/>
+          <include name="TC001_createOrgwithDD"/>
         </methods>
-      </class> <!-- com.Vtiger.TC_002_CreateContactTest -->
+      </class> <!-- com.Vtiger.TC_001_CreateOrgWith_DDTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
