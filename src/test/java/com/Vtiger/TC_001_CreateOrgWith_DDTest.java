@@ -1,6 +1,7 @@
 package com.Vtiger;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -15,6 +16,9 @@ import org.testng.annotations.Test;
 import com.vtiger.generic.FileUtility;
 import com.vtiger.generic.JavaUtility;
 import com.vtiger.generic.WebDriverUtility;
+
+import objectRepo.HomePage;
+import objectRepo.LoginPage;
 
 public class TC_001_CreateOrgWith_DDTest {
 
@@ -64,12 +68,12 @@ public class TC_001_CreateOrgWith_DDTest {
 
 
 		//Step 2 Login to app
-		driver.findElement(By.name("user_name")).sendKeys(fileutility.readDatafromPropfile("username"));
-		driver.findElement(By.name("user_password")).sendKeys(fileutility.readDatafromPropfile("password"));
-		driver.findElement(By.id("submitButton")).click();
+		LoginPage lp= new LoginPage(driver);
+		lp.logintoApp();
 
 		//step 3 click on org link
-		driver.findElement(By.xpath("//a[text()='Organizations']")).click();
+		HomePage hp = new HomePage(driver);
+		hp.getOrglink().click();
 
 		//step 4 clcik on + btn
 		driver.findElement(By.xpath("//img[@title='Create Organization...']")).click();
@@ -111,14 +115,19 @@ public class TC_001_CreateOrgWith_DDTest {
 		Assert.assertEquals(actulelement.isDisplayed(), true);
 
 		//logout from app
-		webulity.movetoelement(driver, driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']")));
-
-		driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+		hp.logoutfromApp();
 
 
 		//Close the browser
 		Thread.sleep(5000);
 		driver.close();
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
