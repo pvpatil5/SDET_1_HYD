@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="2" parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="2" parallel="tests" name="Test-runner2(failed)">
-    <parameter name="browser" value="firefox"/>
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.vtiger.generic.ListenerImplementation"/>
+  </listeners>
+  <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.Vtiger.TC_000_CreateOrg">
+      <class name="com.Vtiger.SampleTestCaseForScreenShot">
         <methods>
           <include name="launchBrowser"/>
+          <include name="demoTest"/>
           <include name="logout"/>
           <include name="closeBrowser"/>
           <include name="login"/>
           <include name="closeConnection"/>
           <include name="startConnection"/>
-          <include name="TC001_createOrgwithDD"/>
         </methods>
-      </class> <!-- com.Vtiger.TC_000_CreateOrg -->
+      </class> <!-- com.Vtiger.SampleTestCaseForScreenShot -->
     </classes>
-  </test> <!-- Test-runner2(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

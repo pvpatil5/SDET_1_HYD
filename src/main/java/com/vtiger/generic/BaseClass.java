@@ -24,6 +24,7 @@ public class BaseClass {
 	public WebDriver driver;
 	public FileUtility fileutility= new FileUtility();
 	public HomePage hp;
+	public static WebDriver sdriver;
 	
 	@BeforeSuite(groups= {"smoke","regression"})
 	public void startConnection()
@@ -31,11 +32,11 @@ public class BaseClass {
 		System.out.println("Start the Connection with DataBase");
 	}
 	
-	@Parameters("browser")
+	//@Parameters("browser")
 	@BeforeClass(groups= {"smoke","regression"})
-	public void launchBrowser(String browsername) throws Throwable
+	public void launchBrowser() throws Throwable
 	{
-		//String browsername=fileutility.readDatafromPropfile("browser");
+		String browsername=fileutility.readDatafromPropfile("browser");
 		if
 		(browsername.equalsIgnoreCase("Chrome"))
 		{
@@ -57,7 +58,7 @@ public class BaseClass {
 			driver= new ChromeDriver();
 		}
 
-
+        sdriver=driver;
 		driver.get(fileutility.readDatafromPropfile("URL"));
 		driver.manage().window().maximize();
 	}
