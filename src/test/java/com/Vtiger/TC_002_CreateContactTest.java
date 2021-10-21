@@ -11,21 +11,23 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TC_002_CreateContactTest
+import com.vtiger.generic.BaseClass;
+
+public class TC_002_CreateContactTest extends BaseClass
 {
 	@Test
 	public void createcontact() throws InterruptedException 
 	{
 		//Step 1 Launch App
-		WebDriver driver = new ChromeDriver();
-		driver.get("http://localhost:8888/");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//		WebDriver driver = new ChromeDriver();
+//		driver.get("http://localhost:8888/");
+//		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		//Step 2 Login to app
-		driver.findElement(By.name("user_name")).sendKeys("admin");
-		driver.findElement(By.name("user_password")).sendKeys("12345");
-		driver.findElement(By.id("submitButton")).click();
+//		driver.findElement(By.name("user_name")).sendKeys("admin");
+//		driver.findElement(By.name("user_password")).sendKeys("admin");
+//		driver.findElement(By.id("submitButton")).click();
 
 		//step 3 click on org link
 		driver.findElement(By.xpath("//a[text()='Contacts']")).click();
@@ -66,14 +68,14 @@ public class TC_002_CreateContactTest
 		Assert.assertEquals(actulelement.isDisplayed(), true);
 
 		//Logout from App
-		Actions action = new Actions(driver);
-		action.moveToElement(driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"))).build().perform();
-
-		driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
-		
-		//Close the browser
-		Thread.sleep(5000);
-		driver.close();
+//		Actions action = new Actions(driver);
+//		action.moveToElement(driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"))).build().perform();
+//
+//		driver.findElement(By.xpath("//a[text()='Sign Out']")).click();
+//		
+//		//Close the browser
+//		Thread.sleep(5000);
+//		driver.close();
 	}
 
 }

@@ -11,8 +11,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
+import com.vtiger.generic.BaseClass;
 import com.vtiger.generic.FileUtility;
 import com.vtiger.generic.JavaUtility;
 import com.vtiger.generic.WebDriverUtility;
@@ -20,9 +23,7 @@ import com.vtiger.generic.WebDriverUtility;
 import objectRepo.HomePage;
 import objectRepo.LoginPage;
 
-public class TC_001_CreateOrgWith_DDTest {
-
-	WebDriver driver ;
+public class TC_001_CreateOrgWith_DDTest extends BaseClass{
 
 	@Test
 	public void TC001_createOrgwithDD() throws InterruptedException, IOException 
@@ -34,45 +35,11 @@ public class TC_001_CreateOrgWith_DDTest {
 		String orgname="QSPHYD"+randomnumber;
 		System.out.println(orgname);
 
+	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-
-		FileUtility fileutility= new FileUtility();
-
-
-		//Step 1 Launch App
-		if
-		(fileutility.readDatafromPropfile("browser").equalsIgnoreCase("Chrome"))
-		{
-			driver = new ChromeDriver();
-		}
-		else if
-		(fileutility.readDatafromPropfile("browser").equalsIgnoreCase("ff"))
-		{
-			driver = new FirefoxDriver();
-		}
-		else if
-		(fileutility.readDatafromPropfile("browser").equalsIgnoreCase("safari"))
-		{
-			driver = new SafariDriver();
-		}
-
-		else
-		{
-			driver= new ChromeDriver();
-		}
-
-
-		driver.get(fileutility.readDatafromPropfile("URL"));
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-
-		//Step 2 Login to app
-		LoginPage lp= new LoginPage(driver);
-		lp.logintoApp();
 
 		//step 3 click on org link
-		HomePage hp = new HomePage(driver);
+	    hp = new HomePage(driver);
 		hp.getOrglink().click();
 
 		//step 4 clcik on + btn
@@ -103,8 +70,9 @@ public class TC_001_CreateOrgWith_DDTest {
 		//
 		driver.findElement(By.xpath("//input[@class='txtBox']")).sendKeys(orgname);
 
+		Thread.sleep(5000);
 		WebElement searchfldDropdown=driver.findElement(By.name("search_field"));
-		webulity.selectelementfromDropdown(searchfldDropdown,"Organization Name" );
+		webulity.selectelementfromDropdown(searchfldDropdown,"accountname" );
 
 		driver.findElement(By.name("submit")).click();
 
@@ -112,22 +80,11 @@ public class TC_001_CreateOrgWith_DDTest {
 
 		System.out.println(actulelement.isDisplayed());
 
-		Assert.assertEquals(actulelement.isDisplayed(), true);
-
-		//logout from app
-		hp.logoutfromApp();
-
-
-		//Close the browser
-		Thread.sleep(5000);
-		driver.close();
+		//Assert.assertEquals(actulelement.isDisplayed(), true);
 		
+		SoftAssert sa=new SoftAssert();
+		sa.assertEquals(actulelement.isDisplayed(),true);
 		
-		
-		
-		
-		
-		
+		Reporter.log("Create org. with dropdown is passed");
 	}
-
 }
