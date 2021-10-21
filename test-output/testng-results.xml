@@ -1,73 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
+    <line>
+      <![CDATA[Create org. with dropdown is passed]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="54572" started-at="2021-10-13T07:59:16Z" finished-at="2021-10-13T08:00:10Z">
+  <suite started-at="2021-10-20T16:49:30 IST" name="Default suite" finished-at="2021-10-20T16:50:18 IST" duration-ms="47345">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="54572" started-at="2021-10-13T07:59:16Z" finished-at="2021-10-13T08:00:10Z">
+    <test started-at="2021-10-20T16:49:30 IST" name="Default test" finished-at="2021-10-20T16:50:18 IST" duration-ms="47345">
       <class name="com.Vtiger.TC_001_CreateOrgWith_DDTest">
-        <test-method status="FAIL" signature="TC001_createOrgwithDD()[pri:0, instance:com.Vtiger.TC_001_CreateOrgWith_DDTest@7d3a22a9]" name="TC001_createOrgwithDD" duration-ms="54389" started-at="2021-10-13T07:59:16Z" finished-at="2021-10-13T08:00:10Z">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
-            <message>
-              <![CDATA[Element <a href="index.php?module=Accounts&action=index"> is not clickable at point (255,63) because another element <div id="__vtigerjs_dialogbox_olayer__" class="small veil"> obscures it
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'AMAR', ip: '192.168.194.153', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_172'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 92.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210922161155, moz:geckodriverVersion: 0.30.0, moz:headless: false, moz:processID: 6320, moz:profile: C:\Users\AMAR-G\AppData\Loc..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 6.3, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 3f9da0a6-6b1f-4618-b8b9-0d53ba097c62]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: Element <a href="index.php?module=Accounts&action=index"> is not clickable at point (255,63) because another element <div id="__vtigerjs_dialogbox_olayer__" class="small veil"> obscures it
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'AMAR', ip: '192.168.194.153', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_172'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 92.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210922161155, moz:geckodriverVersion: 0.30.0, moz:headless: false, moz:processID: 6320, moz:profile: C:\Users\AMAR-G\AppData\Loc..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 6.3, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 3f9da0a6-6b1f-4618-b8b9-0d53ba097c62
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-at com.Vtiger.TC_001_CreateOrgWith_DDTest.TC001_createOrgwithDD(TC_001_CreateOrgWith_DDTest.java:100)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+        <test-method is-config="true" signature="startConnection()[pri:0, instance:com.Vtiger.TC_001_CreateOrgWith_DDTest@6ca8564a]" started-at="2021-10-20T16:49:30 IST" name="startConnection" finished-at="2021-10-20T16:49:30 IST" duration-ms="14" status="PASS">
           <reporter-output>
           </reporter-output>
+        </test-method> <!-- startConnection -->
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:com.Vtiger.TC_001_CreateOrgWith_DDTest@6ca8564a]" started-at="2021-10-20T16:49:30 IST" name="launchBrowser" finished-at="2021-10-20T16:49:38 IST" duration-ms="7098" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method is-config="true" signature="login()[pri:0, instance:com.Vtiger.TC_001_CreateOrgWith_DDTest@6ca8564a]" started-at="2021-10-20T16:49:38 IST" name="login" finished-at="2021-10-20T16:49:42 IST" duration-ms="4694" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="TC001_createOrgwithDD()[pri:0, instance:com.Vtiger.TC_001_CreateOrgWith_DDTest@6ca8564a]" started-at="2021-10-20T16:49:42 IST" name="TC001_createOrgwithDD" finished-at="2021-10-20T16:50:13 IST" duration-ms="30718" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Create org. with dropdown is passed]]>
+            </line>
+          </reporter-output>
         </test-method> <!-- TC001_createOrgwithDD -->
+        <test-method is-config="true" signature="logout()[pri:0, instance:com.Vtiger.TC_001_CreateOrgWith_DDTest@6ca8564a]" started-at="2021-10-20T16:50:13 IST" name="logout" finished-at="2021-10-20T16:50:16 IST" duration-ms="2630" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.Vtiger.TC_001_CreateOrgWith_DDTest@6ca8564a]" started-at="2021-10-20T16:50:16 IST" name="closeBrowser" finished-at="2021-10-20T16:50:18 IST" duration-ms="2154" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="closeConnection()[pri:0, instance:com.Vtiger.TC_001_CreateOrgWith_DDTest@6ca8564a]" started-at="2021-10-20T16:50:18 IST" name="closeConnection" finished-at="2021-10-20T16:50:18 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeConnection -->
       </class> <!-- com.Vtiger.TC_001_CreateOrgWith_DDTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
