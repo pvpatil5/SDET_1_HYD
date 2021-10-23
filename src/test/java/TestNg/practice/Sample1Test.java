@@ -3,17 +3,27 @@ package TestNg.practice;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Sample1 {
+public class Sample1Test {
 	
 	@BeforeSuite
 	public void startConnection()
 	{
 		System.out.println("Connecting to DataBase");
+	}
+	@BeforeTest
+	public void beforetest() {
+		System.out.println("Before test");
+	}
+	@AfterTest
+	public void Aftertest() {
+		System.out.println("Aftertest ");
 	}
 	
 	@BeforeClass
@@ -28,14 +38,19 @@ public class Sample1 {
 		System.out.println("Login");
 	}
 	
-	@Test
-	public void createContact()
+	@Test()
+	public void TYSS()
 	{
 		System.out.println("Contact Created");
 	}
+	@Test()
+	public void JSP()
+	{
+		System.out.println("Org Created");
+	}
 	
-	@Test
-	public void createLead()
+	@Test()
+	public void QSP()
 	{
 		System.out.println("Lead Created");
 	}

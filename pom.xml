@@ -53,7 +53,6 @@
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.14.3</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -71,11 +70,67 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>testng.xml</suiteXmlFile>
+						<suiteXmlFile>testngBatchExecution.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>SmokeTest</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M5</version>
+						<configuration>
+							<suiteXmlFiles>
+								<suiteXmlFile>testng_Smoke_test.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<profile>
+			<id>DistParallel</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M5</version>
+						<configuration>
+							<suiteXmlFiles>
+								<suiteXmlFile>testng_Distributed_Parallal_Exe.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>regionalregression</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.0.0-M5</version>
+						<configuration>
+							<suiteXmlFiles>
+								<suiteXmlFile>testng_regional_regression_test.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
 
 </project>

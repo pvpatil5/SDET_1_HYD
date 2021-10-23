@@ -1,20 +1,15 @@
 package com.vtiger.generic;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Parameters;
-
-import com.beust.jcommander.Parameter;
+import org.testng.annotations.BeforeTest;
 
 import objectRepo.HomePage;
 import objectRepo.LoginPage;
@@ -33,7 +28,7 @@ public class BaseClass {
 	}
 	
 	//@Parameters("browser")
-	@BeforeClass(groups= {"smoke","regression"})
+	@BeforeTest(groups= {"smoke","regression"})
 	public void launchBrowser() throws Throwable
 	{
 		String browsername=fileutility.readDatafromPropfile("browser");
@@ -77,7 +72,7 @@ public class BaseClass {
 		hp.logoutfromApp();
 	}
 	
-	@AfterClass(groups= {"smoke","regression"})
+	@AfterTest(groups= {"smoke","regression"})
 	public void closeBrowser() throws Throwable
 	{
 		Thread.sleep(2000);

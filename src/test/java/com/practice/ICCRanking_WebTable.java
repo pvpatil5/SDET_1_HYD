@@ -28,17 +28,18 @@ public class ICCRanking_WebTable {
 
 		}
 		System.out.println();
-
-		List<WebElement> teams = driver.findElements(By.xpath("//table/tbody/tr"));
-
-		for (int i = 0; i < teams.size(); i++) 
-		{
-
-			System.out.print(teams.get(i).getText()+" ");
-			System.out.println();
-
-		}
-
+//
+//		List<WebElement> teams = driver.findElements(By.xpath("//table/tbody/tr"));
+//
+//		for (int i = 0; i < teams.size(); i++) 
+//		{
+//
+//			System.out.print(teams.get(i).getText()+" ");
+//			System.out.println();
+//
+//		}
+			
+		driver.navigate().refresh();
 
 		System.out.println(driver.findElement(By.xpath("(//table/tbody/tr)[last()]")).getText());
 
