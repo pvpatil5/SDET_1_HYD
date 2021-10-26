@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.vtiger.generic.WebDriverUtility;
+
 public class TC_003_CreateContact_org_Test {
 
 	@Test
@@ -38,8 +40,10 @@ public class TC_003_CreateContact_org_Test {
 		//step 5
 		WebElement intialsDD=driver.findElement(By.name("salutationtype"));
 
-		Select intialsDropdown= new Select(intialsDD);
-		intialsDropdown.selectByVisibleText("Mr.");
+//		Select intialsDropdown= new Select(intialsDD);
+//		intialsDropdown.selectByVisibleText("Mr.");
+		WebDriverUtility webutility= new WebDriverUtility();
+		webutility.slectelementfromDropdown(intialsDD, "Mr");
 
 		driver.findElement(By.name("firstname")).sendKeys("SHAM");
 

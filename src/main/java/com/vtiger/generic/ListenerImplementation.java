@@ -1,65 +1,83 @@
 package com.vtiger.generic;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+
 public class ListenerImplementation implements ITestListener {
 
-	
+	ExtentHtmlReporter reporter ;
+	ExtentReports reports;
+	ExtentTest test;
 
 	public void onTestFailure(ITestResult result) {
-		
-		String failedTestCase = result.getMethod().getMethodName();
-		String currentDate = new Date().toString().replace(":", "_").replace(" ", "_");
-		EventFiringWebDriver ed=new EventFiringWebDriver(BaseClass.sdriver);
-		File src = ed.getScreenshotAs(OutputType.FILE);
-		File dest = new File("./screenshot/"+failedTestCase+currentDate+".PNG");
+
+		test.log(Status.FAIL, "This method"+result.getMethod().getMethodName()+"is Failed");
+		test.log(Status.FAIL,result.getThrowable() );
+
 		try {
-			FileUtils.copyFile(src, dest);
+			String path=BaseClass.getscreenshot(result.getMethod().getMethodName());
+			test.addScreenCaptureFromPath(path);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+
 	}
 
 	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
-		
+		test= reports.createTest(result.getMethod().getMethodName());
+
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		// TODO Auto-generated method stub
-		
+		test.log(Status.PASS, "This method"+result.getMethod().getMethodName()+"is Passed");
+
 	}
 
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
-		
+		test.log(Status.SKIP, "This method"+result.getMethod().getMethodName()+"is skipped");
+
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void onStart(ITestContext context) {
-		// TODO Auto-generated method stub
+		JavaUtility jv = new JavaUtility();
+		String date = jv.getCurrentDate();
 		
+		reporter= new ExtentHtmlReporter("../SDETHYD_1/src/test/resources/Vtiger"+date+".html");
+		reporter.config().setDocumentTitle("SDET-1");
+		reporter.config().setReportName("VTiger");
+		reporter.config().setTheme(Theme.DARK);
+
+		reports = new ExtentReports();
+		reports.attachReporter(reporter);
+
+		reports.setSystemInfo("AppURL", "http://localhost:8888");
+		reports.setSystemInfo("Env", "Test QA");
+		reports.setSystemInfo("Build", "2.1");
+		reports.setSystemInfo("Reporter name", "Pavan");
+
 	}
 
 	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
-		
+		reports.flush();
+
 	}
 
-	
+
 
 }

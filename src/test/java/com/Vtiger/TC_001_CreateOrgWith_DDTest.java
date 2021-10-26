@@ -12,6 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -23,6 +24,7 @@ import com.vtiger.generic.WebDriverUtility;
 import objectRepo.HomePage;
 import objectRepo.LoginPage;
 
+@Listeners(com.vtiger.generic.ListenerImplementation.class)
 public class TC_001_CreateOrgWith_DDTest extends BaseClass{
 
 	@Test
@@ -85,6 +87,6 @@ public class TC_001_CreateOrgWith_DDTest extends BaseClass{
 		SoftAssert sa=new SoftAssert();
 		sa.assertEquals(actulelement.isDisplayed(),true);
 		
-		Reporter.log("Create org. with dropdown is passed");
+		Assert.assertEquals(false, true);
 	}
 }
