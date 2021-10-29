@@ -42,8 +42,8 @@ public class TC_003_CreateContact_org_Test {
 
 //		Select intialsDropdown= new Select(intialsDD);
 //		intialsDropdown.selectByVisibleText("Mr.");
-		WebDriverUtility webutility= new WebDriverUtility();
-		webutility.slectelementfromDropdown(intialsDD, "Mr");
+		
+		WebDriverUtility.getInstanceofwebdriverUtility().slectelementfromDropdown(intialsDD, "Mr");
 
 		driver.findElement(By.name("firstname")).sendKeys("SHAM");
 

@@ -20,8 +20,8 @@ public class TC_000_CreateOrg extends BaseClass{
 	@Test(groups="smoke")
 	public void createOrgTest()
 	{
-		JavaUtility jv = new JavaUtility();	
-		int randomnumber =jv.generateRandomNo();
+		//JavaUtility jv = new JavaUtility();	
+		int randomnumber =JavaUtility.getInstanceofJavaUtility().generateRandomNo();
 
 		String orgname="QSPHYD"+randomnumber;
 		System.out.println(orgname);
@@ -45,8 +45,8 @@ public class TC_000_CreateOrg extends BaseClass{
 	public void TC001_createOrgwithDD() throws InterruptedException, IOException 
 	{
 
-		JavaUtility jv = new JavaUtility();	
-		int randomnumber =jv.generateRandomNo();
+		//JavaUtility jv = new JavaUtility();	
+		int randomnumber =JavaUtility.getInstanceofJavaUtility().generateRandomNo();
 
 		String orgname="QSPHYD"+randomnumber;
 		System.out.println(orgname);
@@ -66,15 +66,15 @@ public class TC_000_CreateOrg extends BaseClass{
 		driver.findElement(By.name("accountname")).sendKeys(orgname);
 
 		WebElement industryDropdown=driver.findElement(By.name("industry"));
-		WebDriverUtility webulity = new WebDriverUtility();
-		webulity.selectelementfromDropdown(industryDropdown, "Education");
+		//WebDriverUtility webulity = new WebDriverUtility();
+		WebDriverUtility.getInstanceofwebdriverUtility().selectelementfromDropdown(industryDropdown, "Education");
 
 		WebElement ratingDropdown=driver.findElement(By.name("rating"));
-		webulity.selectelementfromDropdown(ratingDropdown, "Active");
+		WebDriverUtility.getInstanceofwebdriverUtility().selectelementfromDropdown(ratingDropdown, "Active");
 
 
 		WebElement typeDropdown=driver.findElement(By.name("accounttype"));
-		webulity.selectelementfromDropdown(typeDropdown, 3);
+		WebDriverUtility.getInstanceofwebdriverUtility().selectelementfromDropdown(typeDropdown, 3);
 
 		driver.findElement(By.xpath("//input[@title='Save [Alt+S]']")).click();
 
@@ -88,7 +88,7 @@ public class TC_000_CreateOrg extends BaseClass{
 
 		Thread.sleep(5000);
 		WebElement searchfldDropdown=driver.findElement(By.name("search_field"));
-		webulity.selectelementfromDropdown(searchfldDropdown,"accountname" );
+		WebDriverUtility.getInstanceofwebdriverUtility().selectelementfromDropdown(searchfldDropdown,"accountname" );
 
 		driver.findElement(By.name("submit")).click();
 

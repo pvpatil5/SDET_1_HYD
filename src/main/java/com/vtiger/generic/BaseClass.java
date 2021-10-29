@@ -23,8 +23,8 @@ import objectRepo.LoginPage;
 public class BaseClass {
 
 	public WebDriver driver;
-	public FileUtility fileutility= new FileUtility();
-	public HomePage hp;
+	//public FileUtility fileutility= new FileUtility();
+	public HomePage hp ;
 	public static WebDriver staticdriver;
 
 	@BeforeSuite(groups= {"smoke","regression"})
@@ -37,7 +37,7 @@ public class BaseClass {
 	@BeforeTest(groups= {"smoke","regression"})
 	public void launchBrowser() throws Throwable
 	{
-		String browsername=fileutility.readDatafromPropfile("browser");
+		String browsername=FileUtility.getinstanceofPropfile().readDatafromPropfile("browser");
 		if
 		(browsername.equalsIgnoreCase("Chrome"))
 		{
@@ -60,7 +60,7 @@ public class BaseClass {
 		}
 
 		staticdriver=driver;
-		driver.get(fileutility.readDatafromPropfile("URL"));
+		driver.get(FileUtility.getinstanceofPropfile().readDatafromPropfile("URL"));
 		driver.manage().window().maximize();
 	}
 

@@ -6,6 +6,16 @@ import java.util.Properties;
 
 public class FileUtility 
 {
+	private FileUtility()
+	{
+		
+	}
+	
+	public static FileUtility getinstanceofPropfile() {
+		FileUtility fileutility= new FileUtility();
+		return fileutility;
+	}
+	
 	/**
 	 * This Method will read the the data from prop file
 	 * @param key
@@ -21,6 +31,8 @@ public class FileUtility
 
 		return prop.getProperty(key);
 	}
+	
+	
 
 
 }

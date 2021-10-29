@@ -3,7 +3,17 @@ package com.vtiger.generic;
 import java.util.Date;
 import java.util.Random;
 
-public class JavaUtility {
+public class JavaUtility 
+{
+	private JavaUtility() {
+		
+	}
+	
+	public static JavaUtility getInstanceofJavaUtility() 
+	{
+		JavaUtility jv = new JavaUtility();
+		return jv;
+	}
 
 /**
  * This method is going to genrate random number

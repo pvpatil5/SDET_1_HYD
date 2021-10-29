@@ -13,7 +13,7 @@ public class LoginPage  //Rule 1 Page Shpuld be class name
 {
 	WebDriver driver;
 	
-	FileUtility fileutility= new FileUtility();
+//	FileUtility fileutility= new FileUtility();
 	
 	public LoginPage(WebDriver driver)  		//Rule 5 Use constructor for initilization
 	{
@@ -44,8 +44,8 @@ public class LoginPage  //Rule 1 Page Shpuld be class name
 	
 	public void logintoApp() throws IOException 	//Rule 6 Use Business libraries
 	{
-		usernametxtfld.sendKeys(fileutility.readDatafromPropfile("username"));
-		passwordtxtfld.sendKeys(fileutility.readDatafromPropfile("password"));
+		usernametxtfld.sendKeys(FileUtility.getinstanceofPropfile().readDatafromPropfile("username"));
+		passwordtxtfld.sendKeys(FileUtility.getinstanceofPropfile().readDatafromPropfile("password"));
 		loginbtn.click();
 	}
 	

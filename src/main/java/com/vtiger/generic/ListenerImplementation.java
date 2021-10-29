@@ -55,8 +55,8 @@ public class ListenerImplementation implements ITestListener {
 	}
 
 	public void onStart(ITestContext context) {
-		JavaUtility jv = new JavaUtility();
-		String date = jv.getCurrentDate();
+		
+		String date = JavaUtility.getInstanceofJavaUtility().getCurrentDate();
 		
 		reporter= new ExtentHtmlReporter("../SDETHYD_1/src/test/resources/Vtiger"+date+".html");
 		reporter.config().setDocumentTitle("SDET-1");

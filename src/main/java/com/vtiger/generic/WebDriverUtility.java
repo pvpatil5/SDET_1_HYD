@@ -19,11 +19,24 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class WebDriverUtility 
 {
+	private  WebDriverUtility() {
+
+	}
+	
+	public static  WebDriverUtility getInstanceofwebdriverUtility() {
+		WebDriverUtility webdriverutil= new WebDriverUtility();
+		return webdriverutil;
+
+	}
+	
+	
 	/**
 	 * @author PAVAN
 	 * Description This method is going to work as implicit wait
 	 * @param driver
 	 */
+	
+
 
 	public void pageloadtimeout(WebDriver driver) 
 	{

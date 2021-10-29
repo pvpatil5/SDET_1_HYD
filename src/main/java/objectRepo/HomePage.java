@@ -10,7 +10,7 @@ import com.vtiger.generic.WebDriverUtility;
 public class HomePage {
 
 	WebDriver driver;
-	WebDriverUtility webutility = new WebDriverUtility();
+	//WebDriverUtility webutility = new WebDriverUtility();
 
 	public HomePage(WebDriver driver) {
 		this.driver= driver;
@@ -43,7 +43,7 @@ public class HomePage {
 
 	public void logoutfromApp() 
 	{
-		webutility.movetoelement(driver, logoutimg);
+		WebDriverUtility.getInstanceofwebdriverUtility().movetoelement(driver, logoutimg);
 		logoutbtn.click();
 		
 	}
