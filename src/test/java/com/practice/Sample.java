@@ -1,26 +1,44 @@
 package com.practice;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.testng.SkipException;
+import org.testng.annotations.Test;
 
-public class Sample {
+import com.vtiger.generic.JavaUtility;
 
-	WebDriver driver;
-	
-	By un=By.xpath("//input[@name='user_name']");
+import objectRepo.HomePage;
 
-	By pwd=By.xpath("//input[@name='user_password']");
+public class Sample extends BaseClass
+{
 
-	
-
-
-	public void convert(By locator) {
-
-	}
-
-	public Sample(WebDriver driver) 
+	@Test
+	public void run1() 
 	{
-		this.driver=driver;
+		System.out.println(getTitle());
+		System.out.println(getPageURL());
+		int randomnumber =JavaUtility.getInstanceofJavaUtility().generateRandomNo();
+
+		String orgname="QSPHYD"+randomnumber;
+		System.out.println(orgname);
+
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
+		//step 3 click on org link
+		hp = new HomePage(driver);
+		hp.getOrglink().click();
+
+		//step 4 clcik on + btn
+		driver.findElement(By.xpath("//img[@title='Create Organization...']")).click();
+
+		//Step 5 Fill the details and select value from DD
+		// organaization name
+		driver.findElement(By.name("accountname")).sendKeys(orgname);
+		
+		throw new SkipException("Skipping this exception");
+
 	}
 
 }

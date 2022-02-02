@@ -2,13 +2,12 @@ package com.Vtiger;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
+import org.testng.SkipException;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
 import com.vtiger.generic.BaseClass;
 import com.vtiger.generic.JavaUtility;
 import com.vtiger.generic.WebDriverUtility;
@@ -20,6 +19,7 @@ public class TC_000_CreateOrg extends BaseClass{
 	@Test(groups="smoke")
 	public void createOrgTest()
 	{
+		
 		//JavaUtility jv = new JavaUtility();	
 		int randomnumber =JavaUtility.getInstanceofJavaUtility().generateRandomNo();
 
@@ -39,9 +39,11 @@ public class TC_000_CreateOrg extends BaseClass{
 		//Step 5 Fill the details and select value from DD
 		// organaization name
 		driver.findElement(By.name("accountname")).sendKeys(orgname);
+		
+		//throw new SkipException("Skipping this exception");
 	}
 	
-	@Test(groups="regression")
+	@Test(groups="regression",enabled = false)
 	public void TC001_createOrgwithDD() throws InterruptedException, IOException 
 	{
 

@@ -11,13 +11,22 @@ public class ExcelData {
 
 	public static void main(String[] args) throws EncryptedDocumentException, IOException {
 		FileInputStream fis = new FileInputStream("./SDET1.xlsx");
-		
+
 		Workbook wb=WorkbookFactory.create(fis);
-		
-		Object data = wb.getSheet("Sheet1").getRow(1).getCell(0).toString();
-	
-	
-		System.out.println(data);
+
+		int lastrowmmuber = wb.getSheet("Sheet3").getLastRowNum();
+
+
+		for (int i = 1; i <= lastrowmmuber; i++) 
+		{
+			int salary=(int) wb.getSheet("Sheet3").getRow(i).getCell(2).getNumericCellValue();
+			
+			if(salary>50000) 
+			{
+				System.out.println(wb.getSheet("Sheet3").getRow(i).getCell(1).getStringCellValue()+" "
+						+ salary);
+			}
+		}
 	}
 
 }

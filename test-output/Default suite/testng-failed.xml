@@ -3,17 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Vtiger.TC_001_CreateOrgWith_DDTest">
+      <class name="TestNg.practice.MMT">
         <methods>
-          <include name="launchBrowser"/>
-          <include name="closeBrowser"/>
-          <include name="logout"/>
-          <include name="TC001_createOrgwithDD"/>
-          <include name="login"/>
-          <include name="closeConnection"/>
-          <include name="startConnection"/>
+          <include name="mmt" invocation-numbers="3"/>
         </methods>
-      </class> <!-- com.Vtiger.TC_001_CreateOrgWith_DDTest -->
+      </class> <!-- TestNg.practice.MMT -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

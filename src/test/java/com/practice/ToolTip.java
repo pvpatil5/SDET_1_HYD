@@ -12,7 +12,7 @@ public class ToolTip  {
 	
 
 	WebDriver driver = new ChromeDriver();
-	Sample s1 = new Sample(driver);
+//	Sample s1 = new Sample(driver);
 
 	@Test
 	public  void login() {
@@ -24,7 +24,7 @@ public class ToolTip  {
 		//WebElement un=driver.findElement(By.xpath("//input[@name='user_name']"));
 
 		//driver.navigate().refresh();
-		driver.findElement(s1.un).sendKeys("admin");
+	//	driver.findElement(s1.un).sendKeys("admin");
 		//driver.findElement(By.xpath("//input[@name='user_password']")).sendKeys("12345");
 		driver.navigate().refresh();
 		//pwd.sendKeys("12345");
